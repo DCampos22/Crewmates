@@ -71,10 +71,10 @@ const CreateCrewmate = ({ addCrewmate }) => {
                 </select><br /><br />
 
                 <label htmlFor="loyalty_level">Loyalty Level</label><br />
-                <input type="number" id="loyalty_level" name="loyalty_level" value={crewmate.loyalty_level} min="1" max="5" onChange={handleChange} /><br /><br />
+                <input type="number" id="loyalty_level" name="loyalty_level" value={crewmate.loyalty_level} min="1" max="10" onChange={handleChange} /><br /><br />
 
                 <label htmlFor="sus_level">Sus Level</label><br />
-                <input type="text" id="sus_level" name="sus_level" value={crewmate.sus_level} min="1" max="5" onChange={handleChange} /><br /><br />
+                <input type="number" id="sus_level" name="sus_level" value={crewmate.sus_level} min="1" max="10" onChange={handleChange} /><br /><br />
 
                 <input type="submit" value="Submit Crewmate" />
             </form>

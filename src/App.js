@@ -1,10 +1,10 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import { useRoutes } from 'react-router-dom';
+import { useRoutes, Link } from 'react-router-dom';
 import ReadCrewmates from './pages/ReadCrewmate';
 import CreateCrewmate from './pages/CreateCrewmate';
 import EditCrewmate from './pages/EditCrewmate';
-import { Link } from 'react-router-dom';
+import InfoCrewmate from './pages/InfoCrewmate';
 import { supabase } from '../src/client'; // Ensure you have the supabase client imported
 
 const App = () => {
@@ -31,10 +31,12 @@ const App = () => {
         setCrewmates((prevCrewmates) => [...prevCrewmates, newCrewmate]);
     };
 
+    // Routes configuration
     let element = useRoutes([
         { path: "/", element: <ReadCrewmates crewmates={crewmates} /> },
         { path: "/edit/:id", element: <EditCrewmate data={crewmates} /> },
-        { path: "/new", element: <CreateCrewmate addCrewmate={addCrewmate} fetchCrewmates={fetchCrewmates} /> }
+        { path: "/new", element: <CreateCrewmate addCrewmate={addCrewmate} fetchCrewmates={fetchCrewmates} /> },
+        { path: "/crewmate/:id", element: <InfoCrewmate crewmates={crewmates} /> } // Add the InfoCrewmate route
     ]);
 
     return (
